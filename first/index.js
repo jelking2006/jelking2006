@@ -6,15 +6,15 @@ canvas.height = 576;
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
-class Sprite{
-    constructor({position,velocity})
+class Sprite {
+    constructor( { position, velocity })
     {
         this.position = position;
 
-        this.velocity = velocity;
+        this.velocity = this.velocity;
+
         this.width = 30;
         this.height = 150;
-        
     }
 
     draw() {
@@ -29,39 +29,41 @@ class Sprite{
     }
 }
 
-const player = new Sprite({  
+const player = new Sprite( {
     position: {
         x :0,
         y :0,
     },
     velocity: {
-        x :0,
-        y :0,
+        x:0,
+        y:0,
     }
-})
+});
 
-const enemy = new Sprite({  
+const enemy = new Sprite( {
     position: {
         x :400,
         y :100,
     },
     velocity: {
-        x :0,
-        y :0,
+        x:0,
+        y:0,
     }
-})
+});
 
-console.log(player)
-player.draw();
-enemy.draw();
+console.log(player);
+
+// player.draw();
+// enemy.draw();
 
 function animate() {
     window.requestAnimationFrame(animate);
 
     c.fillStyle = "black";
-    c,fillRect(0, 0, canvas.width, canvas.height);
-     update.player();
-     update.enemy();
+    c.fillRect(0, 0, canvas.width, canvas.height);
+
+    player.update();
+    enemy.update();
 }
 
 animate();
