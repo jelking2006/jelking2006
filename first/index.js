@@ -67,6 +67,12 @@ console.log(player);
 // player.draw();
 // enemy.draw();
 
+const keys = {
+    d: {
+        pressed : false, 
+    }
+}
+
 function animate() {
     window.requestAnimationFrame(animate);
 
@@ -75,6 +81,8 @@ function animate() {
 
     player.update();
     enemy.update();
+
+    player.velocity.x = 0;
 }
 
 animate();
@@ -84,8 +92,7 @@ window.addEventListener("keydown", (event) => {
     
     switch(event.key) {
          case "d":
-            player.velocity.x = 1;
+            player.velocity.x = 0;
             break;
-        
     }
 })
