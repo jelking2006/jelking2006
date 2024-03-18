@@ -11,7 +11,7 @@ class Sprite{
     {
         this.position = position;
 
-        this.velocity = this.velocity;
+        this.velocity = velocity;
         this.width = 30;
         this.height = 150;
         
@@ -57,6 +57,9 @@ enemy.draw();
 
 function animate() {
     window.requestAnimationFrame(animate);
+
+    c.fillStyle = "black";
+    c,fillRect(0, 0, canvas.width, canvas.height);
 }
 
 animate();
