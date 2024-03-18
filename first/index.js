@@ -83,7 +83,8 @@ window.addEventListener("keydown", (event) => {
     console.log(event.key);
     
     switch(event.key) {
-        case "d":
+         case "d":
+            player.velocity.x = 1;
             break;
         
     }
