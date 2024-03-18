@@ -19,7 +19,7 @@ class Sprite{
 
     draw() {
         c.fillStyle = "red";
-        c.fillRect(this.position.x, this.position.y, this.width ,this.height)
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 
     update() {
@@ -60,6 +60,8 @@ function animate() {
 
     c.fillStyle = "black";
     c,fillRect(0, 0, canvas.width, canvas.height);
+     update.player();
+     update.enemy();
 }
 
 animate();
