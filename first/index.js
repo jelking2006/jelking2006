@@ -4,6 +4,8 @@ const c = canvas.getContext("2d");
 canvas.width = 1024;
 canvas.height = 576;
 
+const gravity = 0.2;
+
 c.fillRect(0, 0, canvas.width, canvas.height);
 
 class Sprite {
@@ -25,7 +27,16 @@ class Sprite {
     update() {
         this.draw();
 
-        this.position.y += 10;
+        this.position.y += this.velocity.y;
+
+        this.position.x += this.velocity.y
+
+        if(this.position.y + this.height + this.velocity.y >= canvas.height){
+            this.velocity.y = 0;
+        }
+        else{
+            this.velocity.y += gravity;     
+          }
     }
 }
 
@@ -67,3 +78,13 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener("keydown", (event) => {
+    console.log(event.key);
+    
+    switch(event.key) {
+        case "d":
+            break;
+        
+    }
+})
