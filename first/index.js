@@ -20,9 +20,6 @@ class Sprite {
 
         this.lastKey;
 
-        this.attackBox = {
-            position : this.position.
-        }
     }
 
     draw() {
@@ -112,6 +109,13 @@ function animate() {
         player.velocity.x = +1;
    }
 
+   if( keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
+    enemy.velocity.x = -1;
+}
+else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight"){
+    enemy.velocity.x = +1;
+}
+
 }
 
 animate();
@@ -131,15 +135,15 @@ window.addEventListener("keydown", (event) => {
             case "w":
                player.velocity.y = -10;
                 break;
-                     case "d":
+                     case "ArrowRight":
                      keys.d.pressed = true;
-                     enemy.lastKey = "d"
+                     enemy.lastKey = "ArrowRight"
                      break;
-                     case "a":
+                     case "ArrowLeft":
                      keys.a.pressed = true;
-                     enemy.lastKey = "a"
+                     enemy.lastKey = "ArrowLeft"
                     break;
-                     case "w":
+                     case "ArrowUp":
                          enemy.velocity.y = -10;
                         break;
 
@@ -152,6 +156,14 @@ window.addEventListener("keyup", (event) => {
             keys.d.pressed = false;
             break;
         case "a":
+            keys.a.pressed = false;
+            break;
+    }
+    switch (event.key){
+        case "ArrowRight":
+            keys.d.pressed = false;
+            break;
+        case "ArrowLeft":
             keys.a.pressed = false;
             break;
     }
